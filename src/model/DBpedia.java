@@ -119,4 +119,9 @@ public class DBpedia implements Matchable {
 	   return false;
 	}
 
+	public String getPoster_url() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
