@@ -7,7 +7,7 @@ import de.uni_mannheim.informatik.dws.winter.model.AbstractRecord;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 
 public class DBpedia implements Matchable {
-	protected String id;
+	protected String movie_id;
 	protected String provenance;
 	private String title;
 	private List<Director> directors;
@@ -16,6 +16,7 @@ public class DBpedia implements Matchable {
 	private List<Actor> actors;
 	private String summary;
 	private double rating;
+	private int year;
 
 	public DBpedia(String identifier, String provenance) {
 		movie_id = identifier;
