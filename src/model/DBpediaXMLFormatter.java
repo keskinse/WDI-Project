@@ -11,7 +11,7 @@ import de.uni_mannheim.informatik.dws.winter.model.io.XMLFormatter;
  * @author Oliver Lehmberg (oli@dwslab.de)
  * 
  */
-public class DBpediaXMLFormatter extends XMLFormatter<Movie> {
+public class DBpediaXMLFormatter extends XMLFormatter<DBpedia> {
 	// 'title', 'poster_url', 'year', 'producers', 'summary', 'actors', 'movie_id',
 	// 'rating', 'directors'
 
@@ -24,20 +24,19 @@ public class DBpediaXMLFormatter extends XMLFormatter<Movie> {
 		return doc.createElement("movies");
 	}
 
-	@Override
-	public Element createElementFromRecord(Movie record, Document doc) {
-		Element movie = doc.createElement("movie");
+	public Element createElementFromRecord(DBpedia record, Document doc) {
+		Element dbpedia = doc.createElement("movie");
 
-		movie.appendChild(createTextElement("movie_id", record.getIdentifier(), doc));
-		movie.appendChild(createTextElement("title", record.getTitle(), doc));
-		movie.appendChild(createTextElement("poster_url", record.getPoster_url(), doc));
-		movie.appendChild(createTextElement("year", Integer.toString(record.getYear()), doc));
-		movie.appendChild(createTextElement("summary", record.getSummary(), doc));
-		movie.appendChild(createTextElement("rating", Double.toString(record.getRating()), doc));
-		movie.appendChild(createTextElement("date", record.getDate().toString(), doc));
-		movie.appendChild(createActorsElement(record, doc));
+		dbpedia.appendChild(createTextElement("movie_id", record.getIdentifier(), doc));
+		dbpedia.appendChild(createTextElement("title", record.getTitle(), doc));
+		dbpedia.appendChild(createTextElement("poster_url", record.getPoster_url(), doc));
+		dbpedia.appendChild(createTextElement("year", Integer.toString(record.getYear()), doc));
+		dbpedia.appendChild(createTextElement("summary", record.getSummary(), doc));
+		dbpedia.appendChild(createTextElement("rating", Double.toString(record.getRating()), doc));
+		dbpedia.appendChild(createTextElement("date", record.getDate().toString(), doc));
+		dbpedia.appendChild(createActorsElement(record, doc));
 
-		return movie;
+		return dbpedia;
 	}
 
 	protected Element createTextElementWithProvenance(String name, String value, String provenance, Document doc) { // to
@@ -48,7 +47,7 @@ public class DBpediaXMLFormatter extends XMLFormatter<Movie> {
 		return elem;
 	}
 
-	protected Element createProducersElement(Movie record, Document doc) {
+	protected Element createProducersElement(DBpedia record, Document doc) {
 		Element producerRoot = producerFormatter.createRootElement(doc);
 
 		for (Producer a : record.getProducers()) {
@@ -58,7 +57,7 @@ public class DBpediaXMLFormatter extends XMLFormatter<Movie> {
 		return producerRoot;
 	}
 
-	protected Element createActorsElement(Movie record, Document doc) {
+	protected Element createActorsElement(DBpedia record, Document doc) {
 		Element actorRoot = actorFormatter.createRootElement(doc);
 
 		for (Actor a : record.getActors()) {
@@ -68,7 +67,7 @@ public class DBpediaXMLFormatter extends XMLFormatter<Movie> {
 		return actorRoot;
 	}
 
-	protected Element createDirectorsElement(Movie record, Document doc) {
+	protected Element createDirectorsElement(DBpedia record, Document doc) {
 		Element directorRoot = directorFormatter.createRootElement(doc);
 
 		for (Director a : record.getDirectors()) {
