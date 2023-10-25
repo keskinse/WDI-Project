@@ -6,8 +6,6 @@ import org.slf4j.Logger;
 
 import model.DBpedia;
 import model.DBpediaXMLReader;
-import model.Movie;
-import model.MovieXMLReader;
 import de.uni_mannheim.informatik.dws.winter.model.HashedDataSet;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.utils.WinterLogManager;
