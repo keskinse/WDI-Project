@@ -18,14 +18,16 @@ public class DBpedia implements Matchable {
 	private double rating;
 
 	public DBpedia(String identifier, String provenance) {
-	id = identifier;
-	this.provenance = provenance;
-	actors = new LinkedList<>();
+		movie_id = identifier;
+		this.provenance = provenance;
+		actors = new LinkedList<>();
+		directors = new LinkedList<>();
+		producers = new LinkedList<>();
 	}
 
 	@Override
 	public String getIdentifier() {
-	return id;
+	return movie_id;
 	}
 
 	@Override
@@ -87,6 +89,14 @@ public class DBpedia implements Matchable {
 
 	public void setRating(double rating) {
 	this.rating = rating;
+	}
+
+		public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
 	}
 
 	@Override
