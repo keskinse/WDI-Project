@@ -24,23 +24,14 @@ public class MovieBlockingKeyByYearAndDirector
       String director = null;
       if (size == 1) {
         director = record.getDirectors().get(0).getDirector();
-        try {
-          blockingKey = director.substring(0, Math.min(3, director.length()))
-              + Integer.toString(record.getYear()).substring(2);
-        } catch (Exception e) {
-          if (director == null) {
-            blockingKey = record.getTitle().replace("\\s+", "").substring(0,
-                Math.min(5, record.getTitle().length()));
-          } else {
-            blockingKey = director.substring(0, Math.min(5, director.length()));
-          }
-        }
+         blockingKey = director.substring(0, Math.min(3, director.length()))
+             + Integer.toString(record.getYear()).substring(2,3);
       } else {
         for (int i = 0; i < 2; i++) {
           director = record.getDirectors().get(i).getDirector();
           blockingKey += director.substring(0, Math.min(2, director.length()));
         }
-        blockingKey += Integer.toString(record.getYear()).substring(2);
+        blockingKey += Integer.toString(record.getYear()).substring(2,3);
       }
     } catch (Exception e) {
       blockingKey = "";

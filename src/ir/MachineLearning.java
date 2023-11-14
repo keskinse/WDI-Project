@@ -47,7 +47,8 @@ public class MachineLearning {
    *
    */
   
-  static String gs = "data/goldstandard/matched_results2.csv";
+  static String gsTrain = "data/goldstandard/training/matched_results2_train.csv";
+  static String goldTest = "data/goldstandard/testing/matched_results2_test.csv";
 
   private static final Logger logger = WinterLogManager.activateLogger("default");
 
@@ -67,7 +68,7 @@ public class MachineLearning {
     // loading gold standard
     logger.info("*\tLoading gold standard\t*");
     MatchingGoldStandard goldStandard = new MatchingGoldStandard();
-    goldStandard.loadFromCSVFile(new File(gs));
+    goldStandard.loadFromCSVFile(new File(gsTrain));
 
     // create a matching rule
     String options[] = new String[] {"-S"};
@@ -139,7 +140,7 @@ public class MachineLearning {
     // load the gold standard (test set)
     logger.info("*\tLoading gold standard\t*");
     MatchingGoldStandard gsTest = new MatchingGoldStandard();
-    gsTest.loadFromCSVFile(new File(gs));
+    gsTest.loadFromCSVFile(new File(goldTest));
 
     // evaluate your result
     logger.info("*\tEvaluating result\t*");

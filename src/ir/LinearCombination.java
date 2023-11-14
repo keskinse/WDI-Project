@@ -3,6 +3,8 @@ package ir;
 import java.io.File;
 import java.util.Scanner;
 import org.slf4j.Logger;
+import blocking.MovieBlockingKeyByDirector;
+import blocking.MovieBlockingKeyByProducer;
 import blocking.MovieBlockingKeyByTitleAndYearGenerator;
 import blocking.MovieBlockingKeyByTitleGenerator;
 import blocking.MovieBlockingKeyByYearAndDirector;
@@ -61,37 +63,52 @@ public class LinearCombination {
 		HashedDataSet<Movie, Attribute> data3 = new HashedDataSet<>();
 		new MovieXMLReader().loadFromXML(new File("data/input/TMDB_target.xml"), "/movies/movie", data3);
 	      // loading gold standard
-        logger.info("*\tLoading gold standard\t*");
         /**
-         * CHOOSE YOUR GOLDSTANDARD FILE
+         * CHOOSE YOUR DATA FOR EVALUATION
          */
+        Scanner scanner = new Scanner(System.in);
+        String evalDataText = "";
+        int[] arr = {1,2,3};
         MatchingGoldStandard goldStandard = new MatchingGoldStandard();
-        goldStandard.loadFromCSVFile(new File("data/goldstandard/matched_results2.csv"));
-        
+        System.out.println("*\tSELECT YOUR DATA\t*\n"
+            + "*\t1 = DBPEDIA <-> TMDB\t*\n"
+            + "*\t2 = DBPEDIA <-> HYDRAMOVIE\t*\n"
+            + "*\t3 = TMDB <-> HYDRAMOVIE\t*");
+        String dataType = scanner.nextLine();
+        HashedDataSet<Movie, Attribute> mainDataOne = null;
+        HashedDataSet<Movie, Attribute> mainDataTwo = null;
+        switch(dataType) {
+          case "1": mainDataOne = data1; mainDataTwo = data3; evalDataText = "DBPEDIA <-> TMDB"; goldStandard.loadFromCSVFile(new File("data/goldstandard/GS_DBpedia_TMDB.csv"));  break;
+          case "2": mainDataOne = data1; mainDataTwo = data2; evalDataText = "DBPEDIA <-> HYDRAMOVIE"; goldStandard.loadFromCSVFile(new File("data/goldstandard/GS_DBpedia_HM.csv")); break;
+          case "3": mainDataOne = data2; mainDataTwo = data3; evalDataText = "TMDB <-> HYDRAMOVIE"; goldStandard.loadFromCSVFile(new File("data/goldstandard/GS_TMDB_HM.csv")); break;
+          default: System.exit(0); break;
+        } 
+        logger.info("*\tLoading gold standard\t*");
         // create matching rule
         LinearCombinationMatchingRule<Movie, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
-       matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, goldStandard);
+       matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 10000, goldStandard);
        
        // add comparators
        /**
         * CHOOSE YOUR COMPARATORS
         */
-       matchingRule.addComparator(new MovieTitleMongeElkan(), 0.8);
+       matchingRule.addComparator(new MovieTitleMongeElkan(), 0.7);
        // matchingRule.addComparator(new MovieDateComparator1Year(), 0.3);
-       // matchingRule.addComparator(new MovieDateComparator2Years(), 0.3);
-     //  matchingRule.addComparator(new MovieDateComparator5Years(), 0.2);
-        matchingRule.addComparator(new MovieDateComparator10Years(), 0.2);
+      //  matchingRule.addComparator(new MovieDateComparator2Years(), 0.3);
+     //  matchingRule.addComparator(new MovieDateComparator5Years(), 0.3);
+       matchingRule.addComparator(new MovieDateComparator10Years(), 0.3);
      //   matchingRule.addComparator(new MovieDateComparator2Years(), 0.2);  
     //   matchingRule.addComparator(new MovieDateComparator(), 0.3);
-     //  matchingRule.addComparator(new MovieDirectorMongeElkan(), 0.1);
-    //   matchingRule.addComparator(new MovieProducerMongeElkan(), 0.2);
+      // matchingRule.addComparator(new MovieDirectorMongeElkan(), 0.2);
+      // matchingRule.addComparator(new MovieProducerMongeElkan(), 0.2);
        
        // selection of blocker
-       Scanner scanner = new Scanner(System.in);
        System.out.println("*\tSELECT YOUR BLOCKING GENERATOR KEY\t*\n"
            + "*\t1 = By title and year\t*\n"
            + "*\t2 = By year and director\t*\n"
            + "*\t3 = By year only\t*\n"
+           + "*\t4 = By director only\t*\n"
+           + "*\t5 = By producer only\t*\n"
            + "*\telse = By title only\t*");
        String keyType = scanner.nextLine();
        RecordBlockingKeyGenerator<Movie, Attribute> blockingKeyGenerator;
@@ -99,6 +116,8 @@ public class LinearCombination {
          case "1": blockingKeyGenerator = new MovieBlockingKeyByTitleAndYearGenerator(); break;
          case "2": blockingKeyGenerator = new MovieBlockingKeyByYearAndDirector(); break;
          case "3": blockingKeyGenerator = new MovieBlockingKeyByYearGenerator(); break;
+         case "4": blockingKeyGenerator = new MovieBlockingKeyByDirector(); break;
+         case "5": blockingKeyGenerator = new MovieBlockingKeyByProducer(); break;
          default: blockingKeyGenerator = new MovieBlockingKeyByTitleGenerator(); break;
        } 
        System.out.println("*\tSELECT YOUR BLOCKING TYPE\t*\n"
@@ -109,7 +128,7 @@ public class LinearCombination {
        AbstractBlocker<Movie, Movie, Attribute> blocker;
        switch(blockID) {
          case "1": blocker = new StandardRecordBlocker<Movie, Attribute>(blockingKeyGenerator); break;
-         case "2": blocker = new SortedNeighbourhoodBlocker<>(blockingKeyGenerator, 1); break;
+         case "2": blocker = new SortedNeighbourhoodBlocker<>(blockingKeyGenerator, 20); break;
          default: blocker = new NoBlocker<>(); break;
        }
        scanner.close();
@@ -130,11 +149,11 @@ public class LinearCombination {
         */
        logger.info("*\tRunning identity resolution\t*");
        Processable<Correspondence<Movie, Attribute>> correspondences = engine.runIdentityResolution(
-               data1, data3, null, matchingRule,
+               mainDataOne, mainDataTwo, null, matchingRule,
                (Blocker<Movie, Attribute, Movie, Attribute>) blocker);
        
        // write the correspondences to the output file
-       new CSVCorrespondenceFormatter().writeCSV(new File("data/output/test.csv"), correspondences);        
+       new CSVCorrespondenceFormatter().writeCSV(new File("data/output/outputCorrespondences.csv"), correspondences);        
        
        logger.info("*\tEvaluating result\t*");
        // evaluate your result
@@ -143,7 +162,7 @@ public class LinearCombination {
                goldStandard);
 
        // print the evaluation result
-       logger.info("TMDB <-> DBpedia");
+       logger.info(evalDataText);
        logger.info(String.format(
                "Precision: %.4f",perfTest.getPrecision()));
        logger.info(String.format(
