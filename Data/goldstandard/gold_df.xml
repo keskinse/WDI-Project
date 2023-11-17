@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<movies>
+	<movie>
+		<movie_id>HM_id_2554</movie_id>
+		<title>The Amazing Spider-Man</title>
+		<year>2012</year>
+		<directors>
+			<director>Marc Webb</director>
+		</directors>
+		<producers>
+			<producer>James Vanderbilt</producer>
+		</producers>
+		<actors>
+			<actor>Andrew Garfield</actor>
+			<actor>Emma Stone</actor>
+		</actors>
+		<summary>Peter Parker (Garfield) is an outcast high schooler who was abandoned by his parents as a boy, leaving him to be raised by his Uncle Ben (Sheen) and Aunt May (Field). Like most teenagers, Peter is trying to figure out who he is and how he got to be the person he is today. Peter is also finding his way with his first high school crush, Gwen Stacy (Stone), and together, they struggle with love, commitment, and secrets. As Peter discovers a mysterious briefcase that belonged to his father, he begins a quest to understand his parents' disappearance - leading him directly to Oscorp and the lab of Dr. Curt Connors (Ifans), his father's former partner. As Spider-Man is set on a collision course with Connors' alter-ego, The Lizard, Peter will make life-altering choices to use his powers and shape his destiny to become a hero.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/The-Amazing-Spider-Man-Movie-Poster.jpg</poster_url>
+		<rating>7</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_1554</movie_id>
+		<title>Suicide Squad</title>
+		<year>2016</year>
+		<directors>
+			<director>David Ayer</director>
+		</directors>
+		<producers>
+			<producer>David Ayer</producer>
+		</producers>
+		<actors>
+			<actor>Jared Leto</actor>
+			<actor>Margot Robbie</actor>
+			<actor>Will Smith</actor>
+		</actors>
+		<summary>It feels good to be bad...Assemble a team of the world's most dangerous, incarcerated Super Villains, provide them with the most powerful arsenal at the government's disposal, and send them off on a mission to defeat an enigmatic, insuperable entity. U.S. intelligence officer Amanda Waller has determined only a secretly convened group of disparate, despicable individuals with next to nothing to lose will do. However, once they realize they weren't picked to succeed but chosen for their patent culpability when they inevitably fail, will the Suicide Squad resolve to die trying, or decide it's every man for himself?</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Suicide-Squad-Movie-Poster.jpg</poster_url>
+		<rating>6.1</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_1805</movie_id>
+		<title>Star Wars: The Force Awakens</title>
+		<year>2015</year>
+		<directors>
+			<director>J.J. Abrams</director>
+		</directors>
+		<producers>
+			<producer>Lawrence Kasdan</producer>
+		</producers>
+		<actors>
+			<actor>Daisy Ridley</actor>
+			<actor>John Boyega</actor>
+		</actors>
+		<summary>30 years after the defeat of Darth Vader and the Empire, Rey, a scavenger from the planet Jakku, finds a BB-8 droid that knows the whereabouts of the long lost Luke Skywalker. Rey, as well as a rogue stormtrooper and two smugglers, are thrown into the middle of a battle between the Resistance and the daunting legions of the First Order.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Star-Wars-The-Force-Awakens-Movie-Poster.jpg</poster_url>
+		<rating>8</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_1430</movie_id>
+		<title>John Wick: Chapter 2</title>
+		<year>2017</year>
+		<directors>
+			<director>Chad Stahelski</director>
+		</directors>
+		<producers>
+			<producer>Derek Kolstad</producer>
+		</producers>
+		<actors>
+			<actor>Ian McShane</actor>
+			<actor>Keanu Reeves</actor>
+			<actor>Riccardo Scamarcio</actor>
+		</actors>
+		<summary>Bound by an inescapable blood debt to the Italian crime lord, Santino D'Antonio, and with his precious 1969 Mustang still stolen, John Wick, the taciturn and pitiless assassin who thirsts for seclusion, is forced to visit Italy to honour his promise. But soon, the Boogeyman will find himself dragged into an impossible task in the heart of Rome's secret criminal society, as every killer in the business dreams of cornering the legendary Wick who now has an enormous price on his head. Drenched in blood and mercilessly hunted down, John Wick can surely forget a peaceful retirement--but above all--in this lethal ballet of bullets, can he make it out in one piece?</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/John-Wick-Chapter-2-Movie-Poster.jpg</poster_url>
+		<rating>7.5</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3693</movie_id>
+		<title>American Sniper</title>
+		<year>2014</year>
+		<directors>
+			<director>Clint Eastwood</director>
+		</directors>
+		<producers>
+			<producer>Jason Hall</producer>
+		</producers>
+		<actors>
+			<actor>Bradley Cooper</actor>
+			<actor>Sienna Miller</actor>
+		</actors>
+		<summary>Chris Kyle was nothing more than a Texan man who dreamed of becoming a cowboy, but in his thirties he found out that maybe his life needed something different, something where he could express his real talent, something that could help America in its fight against terrorism. So he joined the SEALs in order to become a sniper. After marrying, Kyle and the other members of the team are called for their first tour of Iraq. Kyle's struggle isn't with his missions, but about his relationship with the reality of the war and, once returned at home, how he manages to handle it with his urban life, his wife and kids.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/American-Sniper-Movie-Poster.jpg</poster_url>
+		<rating>7.3</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_1360</movie_id>
+		<title>Wonder Woman</title>
+		<year>2017</year>
+		<directors>
+			<director>Patty Jenkins</director>
+		</directors>
+		<producers>
+			<producer>Allan Heinberg</producer>
+		</producers>
+		<actors>
+			<actor>Chris Pine</actor>
+			<actor>Gal Gadot</actor>
+		</actors>
+		<summary>Diana, princess of the Amazons, trained to be an unconquerable warrior. Raised on a sheltered island paradise, when a pilot crashes on their shores and tells of a massive conflict raging in the outside world, Diana leaves her home, convinced she can stop the threat. Fighting alongside man in a war to end all wars, Diana will discover her full powers and her true destiny.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Wonder-Woman-Movie-Poster.jpg</poster_url>
+		<rating>7.5</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3253</movie_id>
+		<title>Guardians of the Galaxy</title>
+		<year>2014</year>
+		<directors>
+			<director>James Gunn</director>
+		</directors>
+		<producers>
+			<producer>James Gunn</producer>
+		</producers>
+		<actors>
+			<actor>Chris Pratt</actor>
+			<actor>Vin Diesel</actor>
+		</actors>
+		<summary>After stealing a mysterious orb in the far reaches of outer space, Peter Quill from Earth, is now the main target of a manhunt led by the villain known as Ronan the Accuser. To help fight Ronan and his team and save the galaxy from his power, Quill creates a team of space heroes known as the "Guardians of the Galaxy" to save the world.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Guardians-of-the-Galaxy-Movie-Poster.jpg</poster_url>
+		<rating>8.1</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3280</movie_id>
+		<title>Gladiator</title>
+		<year>2000</year>
+		<directors>
+			<director>Ridley Scott</director>
+		</directors>
+		<producers>
+			<producer>David Franzoni</producer>
+		</producers>
+		<actors>
+			<actor>Joaquin Phoenix</actor>
+			<actor>Russell Crowe</actor>
+		</actors>
+		<summary>Maximus is a powerful Roman general, loved by the people and the aging Emperor, Marcus Aurelius. Before his death, the Emperor chooses Maximus to be his heir over his own son, Commodus, and a power struggle leaves Maximus and his family condemned to death. The powerful general is unable to save his family, and his loss of will allows him to get captured and put into the Gladiator games until he dies. The only desire that fuels him now is the chance to rise to the top so that he will be able to look into the eyes of the man who will feel his revenge.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Gladiator-Movie-Poster.jpg</poster_url>
+		<rating>8.5</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3356</movie_id>
+		<title>Fast &amp; Furious</title>
+		<year>2009</year>
+		<directors>
+			<director>Justin Lin</director>
+		</directors>
+		<producers>
+			<producer>Chris Morgan</producer>
+		</producers>
+		<actors>
+			<actor>Michelle Rodriguez</actor>
+			<actor>Paul Walker</actor>
+			<actor>Vin Diesel</actor>
+		</actors>
+		<summary>Heading back to the streets where it all began, two men rejoin two women to blast muscle, tuner and exotic cars across Los Angeles and floor through the Mexican desert. When a crime brings them back to L.A., fugitive ex-con Dom Toretto reignites his feud with agent Brian O'Connor. But as they are forced to confront a shared enemy, Dom and Brian must give in to an uncertain new trust if they hope to outmaneuver him. And from convoy heists to precision tunnel crawls across international lines, two men will find the best way to get revenge: push the limits of what's possible behind the wheel.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Fast-Furious-Movie-Poster.jpg</poster_url>
+		<rating>6.6</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3436</movie_id>
+		<title>Detachment</title>
+		<year>2011</year>
+		<directors>
+			<director>Tony Kaye</director>
+		</directors>
+		<producers>
+			<producer>Carl Lund</producer>
+		</producers>
+		<actors>
+			<actor>Adrien Brody</actor>
+			<actor>Christina Hendricks</actor>
+			<actor>Marcia Gay Harden</actor>
+		</actors>
+		<summary>Detachment is a chronicle of three weeks in the lives of several high school teachers, administrators and students through the eyes of a substitute teacher named Henry Barthes. Henry roams from school to school, imparting modes of knowledge, but never staying long enough to form any semblance of sentient attachment. A perfect profession for one seeking to hide out in the open. One day Henry arrives at his next assignment. Upon his entry into this particular school, a secret world of emotion is awakened within him by three women. A girl named Meredith in his first period. A fellow teacher Ms. Madison, and a street hooker named Erica, whom Henry has personally granted brief shelter from the streets. Each one of these women, like Henry, are in a life and death struggle to find beauty in a seemingly vicious and loveless world.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Detachment-Movie-Poster.jpg</poster_url>
+		<rating>7.7</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_2879</movie_id>
+		<title>Oblivion</title>
+		<year>2013</year>
+		<directors>
+			<director>Joseph Kosinski</director>
+		</directors>
+		<producers>
+			<producer>Karl Gajdusek</producer>
+		</producers>
+		<actors>
+			<actor>Morgan Freeman</actor>
+			<actor>Tom Cruise</actor>
+		</actors>
+		<summary>One of the few remaining drone repairmen assigned to Earth, its surface devastated after decades of war with the alien Scavs, discovers a crashed spacecraft with contents that bring into question everything he believed about the war, and may even put the fate of mankind in his hands.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Oblivion-Movie-Poster.jpg</poster_url>
+		<rating>7</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_2940</movie_id>
+		<title>Monster House</title>
+		<year>2006</year>
+		<directors>
+			<director>Gil Kenan</director>
+		</directors>
+		<producers>
+			<producer>Dan Harmon</producer>
+		</producers>
+		<actors>
+			<actor>Mitchel Musso</actor>
+			<actor>Sam Lerner</actor>
+		</actors>
+		<summary>The teenage Ninja mutant snail DJ is observing his neighbor Nebbercracker on the other side of their street in the suburb that destroys tricycles of children that trespass his lawn. When DJ's parents travel on the eve of Halloween and the abusive nanny Zee stays with him, he calls his clumsy best friend Chowder to play basketball. But when the ball falls in Nebbercracker's lawn, the old man has a siege, and soon they find that the house is a monster. Later the boys rescue the smart Jenny from the house and the trio unsuccessfully tries to convince the babysitter, her boyfriend Bones and two police officers that the haunted house is a monster, but nobody believes them. The teenagers ask their video-game addicted acquaintance Skull how to destroy the house, and they disclose its secret on the Halloween night.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Monster-House-Movie-Poster.jpg</poster_url>
+		<rating>6.6</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_1677</movie_id>
+		<title>Criminal</title>
+		<year>2016</year>
+		<directors>
+			<director>Ariel Vromen</director>
+		</directors>
+		<producers>
+			<producer>Douglas Cook</producer>
+		</producers>
+		<actors>
+			<actor>Gal Gadot</actor>
+			<actor>Kevin Costner</actor>
+			<actor>Ryan Reynolds</actor>
+		</actors>
+		<summary>Bill Pope (Ryan Reynolds) is a CIA agent on a mission in London tracking down a shadowy hacker nicknamed "The Dutchman." When he gets mysteriously ambushed and killed, an experimental procedure is used to transfer his memories into dangerous convict Jericho Stewart (Kevin Costner). When he wakes up with the CIA agent's memories, his mission is to find The Dutchman and make the deal with him before the hacker launches ICBM's and starts World War III. But complications soon arise and the mission turns personal.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Criminal-Movie-Poster.jpg</poster_url>
+		<rating>6.3</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3096</movie_id>
+		<title>Joy Ride</title>
+		<year>2001</year>
+		<directors>
+			<director>John Dahl</director>
+		</directors>
+		<producers>
+			<producer>Clay Tarver</producer>
+		</producers>
+		<actors>
+			<actor>Leelee Sobieski</actor>
+			<actor>Paul Walker</actor>
+			<actor>Steve Zahn</actor>
+		</actors>
+		<summary>College student Lewis decides to drive across the country to see Venna, a friend who doesn't know that Lewis is interested in her romantically. Unfortunately for his plans, Lewis gets saddled with his raucous-spirited older brother, Fuller, whose on-the-road pranks get the brothers and Venna sucked into a nightmare when a psychotic truckdriver takes offense.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Joy-Ride-Movie-Poster.jpg</poster_url>
+		<rating>6.6</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3129</movie_id>
+		<title>Invincible</title>
+		<year>2006</year>
+		<directors>
+			<director>Ericson Core</director>
+		</directors>
+		<producers>
+			<producer>Brad Gann</producer>
+		</producers>
+		<actors>
+			<actor>Elizabeth Banks</actor>
+			<actor>Greg Kinnear</actor>
+			<actor>Mark Wahlberg</actor>
+		</actors>
+		<summary>In the sumer of 1976, 30-year old Vince Papale is having a tough run of luck. He's been working as a substitute teacher for two days a week but has just found out that his job has been eliminated because of budget cuts. His wife gives up on him saying he'll never amount to anything and asks for a divorce. He works as a bartender and plays football with his friends. When the the new coach of the Philadelphia Eagles, Dick Vermeil, announces that he will hold open tryouts for the team, Vince reluctantly decides to give a try. Based on a true story.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/Invincible-Movie-Poster.jpg</poster_url>
+		<rating>7.1</rating>
+	</movie>
+	<movie>
+		<movie_id>HM_id_3071</movie_id>
+		<title>King Kong</title>
+		<year>2005</year>
+		<directors>
+			<director>Peter Jackson</director>
+		</directors>
+		<producers>
+			<producer>Fran Walsh</producer>
+		</producers>
+		<actors>
+			<actor>Jack Black</actor>
+			<actor>Naomi Watts</actor>
+		</actors>
+		<summary>Carl Denham needs to finish his movie and has the perfect location; Skull Island. But he still needs to find a leading lady. This 'soon-to-be-unfortunate' soul is Ann Darrow. No one knows what they will encounter on this island and why it is so mysterious, but once they reach it, they will soon find out. Living on this hidden island is a giant gorilla and this beast now has Ann is its grasps. Carl and Ann's new love, Jack Driscoll must travel through the jungle looking for Kong and Ann, whilst avoiding all sorts of creatures and beasts. But Carl has another plan in mind.</summary>
+		<poster_url>https://hydramovies.com/wp-content/uploads/2018/04/King-Kong-Movie-Poster.jpg</poster_url>
+		<rating>7.2</rating>
+	</movie>
+</movies>
