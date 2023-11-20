@@ -85,7 +85,7 @@ public class LinearCombination {
         } 
         logger.info("*\tLoading gold standard\t*");
         // create matching rule
-        LinearCombinationMatchingRule<Movie, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.7);
+        LinearCombinationMatchingRule<Movie, Attribute> matchingRule = new LinearCombinationMatchingRule<>(0.85);
        matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 10000, goldStandard);
        
        // add comparators
@@ -93,10 +93,10 @@ public class LinearCombination {
         * CHOOSE YOUR COMPARATORS
         */
        matchingRule.addComparator(new MovieTitleMongeElkan(), 0.7);
-       // matchingRule.addComparator(new MovieDateComparator1Year(), 0.3);
-      //  matchingRule.addComparator(new MovieDateComparator2Years(), 0.3);
+        matchingRule.addComparator(new MovieDateComparator1Year(), 0.3);
+      //  matchingRule.addComparator(new MovieDateComparator2Years(), 0.2);
      //  matchingRule.addComparator(new MovieDateComparator5Years(), 0.3);
-       matchingRule.addComparator(new MovieDateComparator10Years(), 0.3);
+     //  matchingRule.addComparator(new MovieDateComparator10Years(), 0.3);
      //   matchingRule.addComparator(new MovieDateComparator2Years(), 0.2);  
     //   matchingRule.addComparator(new MovieDateComparator(), 0.3);
       // matchingRule.addComparator(new MovieDirectorMongeElkan(), 0.2);

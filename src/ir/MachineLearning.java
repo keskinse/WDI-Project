@@ -47,8 +47,8 @@ public class MachineLearning {
    *
    */
   
-  static String gsTrain = "data/goldstandard/training/matched_results2_train.csv";
-  static String goldTest = "data/goldstandard/testing/matched_results2_test.csv";
+  static String gsTrain = "data/goldstandard/training/GS_DBpedia_HM_train.csv";
+  static String goldTest = "data/goldstandard/testing/GS_DBpedia_HM_test.csv";
 
   private static final Logger logger = WinterLogManager.activateLogger("default");
 
@@ -90,7 +90,7 @@ public class MachineLearning {
     // train the matching rule's model
     logger.info("*\tLearning matching rule\t*");
     RuleLearner<Movie, Attribute> learner = new RuleLearner<>();
-    learner.learnMatchingRule(data3, data1, null, matchingRule, goldStandard);
+    learner.learnMatchingRule(data1, data2, null, matchingRule, goldStandard);
     logger.info(String.format("Matching rule is:\n%s", matchingRule.getModelDescription()));
 
     // create a blocker (blocking strategy)
@@ -131,11 +131,11 @@ public class MachineLearning {
     // Execute the matching
     logger.info("*\tRunning identity resolution\t*");
     Processable<Correspondence<Movie, Attribute>> correspondences =
-        engine.runIdentityResolution(data3, data1, null, matchingRule, (Blocker<Movie, Attribute, Movie, Attribute>) blocker);
+        engine.runIdentityResolution(data1, data2, null, matchingRule, (Blocker<Movie, Attribute, Movie, Attribute>) blocker);
 
     // write the correspondences to the output file
     new CSVCorrespondenceFormatter().writeCSV(
-        new File("data/output/academy_awards_2_actors_correspondences.csv"), correspondences);
+        new File("data/output/outputCorrespondences_ML.csv"), correspondences);
 
     // load the gold standard (test set)
     logger.info("*\tLoading gold standard\t*");
