@@ -13,18 +13,18 @@ import de.uni_mannheim.informatik.dws.winter.model.io.XMLFormatter;
  */
 public class ProducerXMLFormatter extends XMLFormatter<Producer> {
 
-	@Override
-	public Element createRootElement(Document doc) {
-		return doc.createElement("directors");
-	}
+    @Override
+    public Element createRootElement(Document doc) {
+        return doc.createElement("producers");
+    }
 
-	@Override
-	public Element createElementFromRecord(Producer producer, Document doc) {
-		Element producer1 = doc.createElement("producer");
+    @Override
+    public Element createElementFromRecord(Producer producer, Document doc) {
+        Element producer1 = doc.createElement("producer");
 
-		producer1.appendChild(createTextElement("producer", producer.getProducer(), doc));
+        producer1.appendChild(createTextElement("producer", producer.getProducer(), doc));
 
-		return producer1;
-	}
+        return producer1;
+    }
 
 }

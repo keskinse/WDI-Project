@@ -11,14 +11,14 @@
  */
 package evaluation;
 
-import model.modelDF.Producer;
-import model.modelDF.Movie;
 import java.util.HashSet;
 import java.util.Set;
 import de.uni_mannheim.informatik.dws.winter.datafusion.EvaluationRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
+import model.Movie;
+import model.Producer;
 
 public class ProducerEvaluationRule extends EvaluationRule<Movie, Attribute> {
 

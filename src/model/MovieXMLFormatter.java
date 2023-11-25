@@ -1,3 +1,14 @@
+/*
+ * Copyright (c) 2017 Data and Web Science Group, University of Mannheim, Germany (http://dws.informatik.uni-mannheim.de/)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and limitations under the License.
+ */
 package model;
 
 import org.w3c.dom.Document;
@@ -12,69 +23,71 @@ import de.uni_mannheim.informatik.dws.winter.model.io.XMLFormatter;
  * 
  */
 public class MovieXMLFormatter extends XMLFormatter<Movie> {
-	// 'title', 'poster_url', 'year', 'producers', 'summary', 'actors', 'movie_id',
-	// 'rating', 'directors'
 
-	ActorXMLFormatter actorFormatter = new ActorXMLFormatter();
-	ProducerXMLFormatter producerFormatter = new ProducerXMLFormatter();
-	DirectorXMLFormatter directorFormatter = new DirectorXMLFormatter();
+    ActorXMLFormatter actorFormatter = new ActorXMLFormatter();
+    DirectorXMLFormatter directorFormatter = new DirectorXMLFormatter();
+    ProducerXMLFormatter producerFormatter = new ProducerXMLFormatter();
 
-	@Override
-	public Element createRootElement(Document doc) {
-		return doc.createElement("movies");
-	}
+    @Override
+    public Element createRootElement(Document doc) {
+        return doc.createElement("movies");
+    }
 
-	public Element createElementFromRecord(Movie record, Document doc) {
-		Element movie = doc.createElement("movie");
+    @Override
+    public Element createElementFromRecord(Movie record, Document doc) {
+        Element movie = doc.createElement("movie");
 
-		movie.appendChild(createTextElement("movie_id", record.getIdentifier(), doc));
-		movie.appendChild(createTextElement("title", record.getTitle(), doc));
-		movie.appendChild(createTextElement("poster_url", record.getPoster_url(), doc));
-		movie.appendChild(createTextElement("year", Integer.toString(record.getYear()), doc));
-		movie.appendChild(createTextElement("summary", record.getSummary(), doc));
-		movie.appendChild(createTextElement("rating", Double.toString(record.getRating()), doc));
-		movie.appendChild(createTextElement("date", record.getDate().toString(), doc));
-		movie.appendChild(createActorsElement(record, doc));
+        movie.appendChild(createTextElement("movie_id", record.getIdentifier(), doc));
 
-		return movie;
-	}
+        movie.appendChild(createTextElementWithProvenance("title", record.getTitle(),
+                record.getMergedAttributeProvenance(Movie.TITLE), doc));
+        movie.appendChild(createTextElementWithProvenance("year", String.valueOf(record.getYear()),
+                record.getMergedAttributeProvenance(Movie.YEAR), doc));
+        movie.appendChild(createTextElementWithProvenance("rating", String.valueOf(record.getRating()),
+                record.getMergedAttributeProvenance(Movie.RATING), doc));
 
-	protected Element createTextElementWithProvenance(String name, String value, String provenance, Document doc) { // to
-																													// be
-																													// checked
-		Element elem = createTextElement(name, value, doc);
-		elem.setAttribute("provenance", provenance);
-		return elem;
-	}
+        movie.appendChild(createActorsElement(record, doc));
 
-	protected Element createProducersElement(Movie record, Document doc) {
-		Element producerRoot = producerFormatter.createRootElement(doc);
+        return movie;
+    }
 
-		for (Producer a : record.getProducers()) {
-			producerRoot.appendChild(producerFormatter.createElementFromRecord(a, doc));
-		}
+    protected Element createTextElementWithProvenance(String name, String value, String provenance, Document doc) {
+        Element elem = createTextElement(name, value, doc);
+        elem.setAttribute("provenance", provenance);
+        return elem;
+    }
 
-		return producerRoot;
-	}
+    protected Element createActorsElement(Movie record, Document doc) {
+        Element actorRoot = actorFormatter.createRootElement(doc);
+        actorRoot.setAttribute("provenance", record.getMergedAttributeProvenance(Movie.ACTORS));
 
-	protected Element createActorsElement(Movie record, Document doc) {
-		Element actorRoot = actorFormatter.createRootElement(doc);
+        for (Actor a : record.getActors()) {
+            actorRoot.appendChild(actorFormatter.createElementFromRecord(a, doc));
+        }
 
-		for (Actor a : record.getActors()) {
-			actorRoot.appendChild(actorFormatter.createElementFromRecord(a, doc));
-		}
+        return actorRoot;
+    }
 
-		return actorRoot;
-	}
+    protected Element createDirectorElement(Movie record, Document doc) {
+        Element directorRoot = directorFormatter.createRootElement(doc);
+        directorRoot.setAttribute("provenance", record.getMergedAttributeProvenance(Movie.DIRECTORS));
 
-	protected Element createDirectorsElement(Movie record, Document doc) {
-		Element directorRoot = directorFormatter.createRootElement(doc);
+        for (Director d : record.getDirectors()) {
+            directorRoot.appendChild(directorFormatter.createElementFromRecord(d, doc));
+        }
 
-		for (Director a : record.getDirectors()) {
-			directorRoot.appendChild(directorFormatter.createElementFromRecord(a, doc));
-		}
+        return directorRoot;
+    }
 
-		return directorRoot;
-	}
+    protected Element createProducerElement(Movie record, Document doc) {
+        Element producerRoot = producerFormatter.createRootElement(doc);
+        producerRoot.setAttribute("provenance", record.getMergedAttributeProvenance(Movie.PRODUCERS));
+
+        for (Producer d : record.getProducers()) {
+            producerRoot.appendChild(producerFormatter.createElementFromRecord(d, doc));
+        }
+
+        return producerRoot;
+    }
 
 }

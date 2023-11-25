@@ -11,14 +11,14 @@
  */
 package evaluation;
 
-import model.modelDF.Director;
-import model.modelDF.Movie;
 import java.util.HashSet;
 import java.util.Set;
 import de.uni_mannheim.informatik.dws.winter.datafusion.EvaluationRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
+import model.Director;
+import model.Movie;
 
 public class DirectorEvaluationRule extends EvaluationRule<Movie, Attribute> {
 

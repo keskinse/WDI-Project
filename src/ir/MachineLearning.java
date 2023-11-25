@@ -11,9 +11,9 @@ import comparators.MovieDateComparator10Years;
 import comparators.MovieDateComparator1Year;
 import comparators.MovieDateComparator2Years;
 import comparators.MovieDateComparator5Years;
-import comparators.MovieDirectorMongeElkan;
-import comparators.MovieProducerMongeElkan;
-import comparators.MovieTitleMongeElkan;
+import comparators.MovieDirectorJaccard;
+import comparators.MovieProducerJaccard;
+import comparators.MovieTitleJaccard;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEvaluator;
 import de.uni_mannheim.informatik.dws.winter.matching.algorithms.RuleLearner;
@@ -78,13 +78,13 @@ public class MachineLearning {
     matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, goldStandard);
 
     // add comparators
-    matchingRule.addComparator(new MovieTitleMongeElkan());
+    matchingRule.addComparator(new MovieTitleJaccard());
     matchingRule.addComparator(new MovieDateComparator1Year());
     matchingRule.addComparator(new MovieDateComparator2Years());
     matchingRule.addComparator(new MovieDateComparator5Years());
     matchingRule.addComparator(new MovieDateComparator10Years());
-    matchingRule.addComparator(new MovieDirectorMongeElkan());
-    matchingRule.addComparator(new MovieProducerMongeElkan());
+    matchingRule.addComparator(new MovieDirectorJaccard());
+    matchingRule.addComparator(new MovieProducerJaccard());
 
 
     // train the matching rule's model

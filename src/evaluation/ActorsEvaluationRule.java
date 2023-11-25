@@ -13,13 +13,12 @@ package evaluation;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import model.modelDF.Actor;
-import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.EvaluationRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
+import model.Actor;
+import model.Movie;
 
 /**
  * {@link EvaluationRule} for the actors of {@link Movie}s. The rule simply

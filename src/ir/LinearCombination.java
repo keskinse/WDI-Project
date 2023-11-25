@@ -13,9 +13,9 @@ import comparators.MovieDateComparator1Year;
 import comparators.MovieDateComparator2Years;
 import comparators.MovieDateComparator5Years;
 import comparators.MovieDateComparator10Years;
-import comparators.MovieDirectorMongeElkan;
-import comparators.MovieProducerMongeElkan;
-import comparators.MovieTitleMongeElkan;
+import comparators.MovieDirectorJaccard;
+import comparators.MovieProducerJaccard;
+import comparators.MovieTitleJaccard;
 import model.Movie;
 import model.MovieXMLReader;
 import de.uni_mannheim.informatik.dws.winter.matching.MatchingEngine;
@@ -92,7 +92,7 @@ public class LinearCombination {
        /**
         * CHOOSE YOUR COMPARATORS
         */
-       matchingRule.addComparator(new MovieTitleMongeElkan(), 0.7);
+       matchingRule.addComparator(new MovieTitleJaccard(), 0.7);
         matchingRule.addComparator(new MovieDateComparator1Year(), 0.3);
       //  matchingRule.addComparator(new MovieDateComparator2Years(), 0.2);
      //  matchingRule.addComparator(new MovieDateComparator5Years(), 0.3);

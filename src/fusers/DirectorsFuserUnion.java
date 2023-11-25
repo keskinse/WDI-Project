@@ -12,10 +12,6 @@
 package fusers;
 
 import java.util.List;
-
-import model.modelDF.Actor;
-import model.modelDF.Movie;
-import model.modelDF.Director;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.list.Union;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
@@ -24,6 +20,9 @@ import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.RecordGroup;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.processing.Processable;
+import model.Actor;
+import model.Director;
+import model.Movie;
 
 /**
  * {@link AttributeValueFuser} for the directors of {@link Movie}s.

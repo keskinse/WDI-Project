@@ -12,7 +12,6 @@
 package fusers;
 
 
-import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.meta.MostRecent;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
@@ -21,6 +20,7 @@ import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.RecordGroup;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.processing.Processable;
+import model.Movie;
 
 /**
  * {@link AttributeValueFuser} for the year of {@link Movie}s.

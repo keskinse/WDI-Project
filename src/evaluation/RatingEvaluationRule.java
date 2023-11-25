@@ -11,11 +11,11 @@
  */
 package evaluation;
 
-import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.EvaluationRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
+import model.Movie;
 
 public class RatingEvaluationRule extends EvaluationRule<Movie, Attribute> {
 

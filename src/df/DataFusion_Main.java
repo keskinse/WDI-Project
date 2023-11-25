@@ -6,11 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
-
-import model.modelDF.Movie;
-import model.modelDF.MovieXMLReader;
-import model.modelDF.MovieXMLFormatter;
-
 import fusers.DirectorsFuserUnion;
 import fusers.DirectorsFuserIntersection;
 import fusers.TitleFuserShortestString;
@@ -18,6 +13,9 @@ import fusers.ProducersFuserUnion;
 import fusers.ProducersFuserIntersection;
 import fusers.RatingFuserFavourSource;
 import fusers.YearFuserFavourSource;
+import model.Movie;
+import model.MovieXMLFormatter;
+import model.MovieXMLReader;
 import fusers.ActorsFuserUnion;
 import fusers.ActorsFuserIntersection;
 import fusers.ActorsFuserFavourSource;

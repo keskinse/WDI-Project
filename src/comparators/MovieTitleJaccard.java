@@ -8,7 +8,7 @@ import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.similarity.string.TokenizingJaccardSimilarity;
 import model.Movie;
 
-public class MovieTitleMongeElkan implements Comparator<Movie, Attribute> {
+public class MovieTitleJaccard implements Comparator<Movie, Attribute> {
 
   private static final long serialVersionUID = 1L;
   private TokenizingJaccardSimilarity sim = new TokenizingJaccardSimilarity();

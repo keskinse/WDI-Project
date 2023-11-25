@@ -6,10 +6,10 @@ import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
 import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
 import de.uni_mannheim.informatik.dws.winter.similarity.string.TokenizingJaccardSimilarity;
+import model.Director;
 import model.Movie;
-import model.Producer;
 
-public class MovieProducerMongeElkan implements Comparator<Movie, Attribute> {
+public class MovieDirectorJaccard implements Comparator<Movie, Attribute> {
 
   private static final long serialVersionUID = 1L;
   private TokenizingJaccardSimilarity sim = new TokenizingJaccardSimilarity();
@@ -24,29 +24,29 @@ public class MovieProducerMongeElkan implements Comparator<Movie, Attribute> {
       
       double similarity = 0.0;
       try {
-        int idx_one = 0, idx_two = 0;
-        double max = Double.MIN_VALUE;
-        for(int i = 0; i < record1.getProducers().size(); i++) {
-          for(int j = 0; j < record2.getProducers().size(); j++) {
-            similarity = sim.calculate(record1.getProducers().get(i).getProducer(), record2.getProducers().get(j).getProducer());
-            if(similarity > max) {
-              max = similarity;
-              idx_one = i;
-              idx_two = j;
-            }
+      int idx_one = 0, idx_two = 0;
+      double max = Double.MIN_VALUE;
+      for(int i = 0; i < record1.getDirectors().size(); i++) {
+        for(int j = 0; j < record2.getDirectors().size(); j++) {
+          similarity = sim.calculate(record1.getDirectors().get(i).getDirector(), record2.getDirectors().get(j).getDirector());
+          if(similarity > max) {
+            max = similarity;
+            idx_one = i;
+            idx_two = j;
           }
         }
-        Producer p1 = record1.getProducers().get(idx_one);
-        Producer p2 = record2.getProducers().get(idx_two);
-        
-        if(this.comparisonLog != null){
-            this.comparisonLog.setComparatorName(getClass().getName());
-        
-            this.comparisonLog.setRecord1Value(p1.getProducer());
-            this.comparisonLog.setRecord2Value(p2.getProducer());
-        
-            this.comparisonLog.setSimilarity(Double.toString(similarity));
-        }
+      }
+      Director d1 = record1.getDirectors().get(idx_one);
+      Director d2 = record2.getDirectors().get(idx_two);
+      
+      if(this.comparisonLog != null){
+          this.comparisonLog.setComparatorName(getClass().getName());
+      
+          this.comparisonLog.setRecord1Value(d1.getDirector());
+          this.comparisonLog.setRecord2Value(d2.getDirector());
+      
+          this.comparisonLog.setSimilarity(Double.toString(similarity));
+      }
       } catch(Exception e) {
         similarity = 0.0;
       }
