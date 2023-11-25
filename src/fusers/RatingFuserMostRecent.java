@@ -41,7 +41,7 @@ public class RatingFuserMostRecent extends AttributeValueFuser<Double, Movie, At
     }
 
     @Override
-    public Integer getValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
+    public Double getValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
         return record.getRating();
     }
 
