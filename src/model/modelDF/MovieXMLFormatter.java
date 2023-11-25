@@ -9,7 +9,7 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and limitations under the License.
  */
-package de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model;
+package model.modelDF;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -41,8 +41,8 @@ public class MovieXMLFormatter extends XMLFormatter<Movie> {
 
         movie.appendChild(createTextElementWithProvenance("title", record.getTitle(),
                 record.getMergedAttributeProvenance(Movie.TITLE), doc));
-        movie.appendChild(createTextElementWithProvenance("date", record.getDate().toString(),
-                record.getMergedAttributeProvenance(Movie.DATE), doc));
+        movie.appendChild(createTextElementWithProvenance("year", String.valueOf(record.getYear()),
+                record.getMergedAttributeProvenance(Movie.YEAR), doc));
         movie.appendChild(createTextElementWithProvenance("rating", String.valueOf(record.getRating()),
                 record.getMergedAttributeProvenance(Movie.RATING), doc));
 

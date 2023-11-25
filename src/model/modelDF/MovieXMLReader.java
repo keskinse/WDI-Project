@@ -9,7 +9,7 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and limitations under the License.
  */
-package de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model;
+package model.modelDF;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -51,7 +51,7 @@ public class MovieXMLReader extends XMLMatchableReader<Movie, Attribute> impleme
 // the schema is defined in the Movie class and not interpreted from the file, so we have to set the attributes manually
         dataset.addAttribute(Movie.TITLE);
         dataset.addAttribute(Movie.DIRECTORS);
-        dataset.addAttribute(Movie.DATE);
+        dataset.addAttribute(Movie.YEAR);
         dataset.addAttribute(Movie.ACTORS);
         dataset.addAttribute(Movie.DIRECTORS);
         dataset.addAttribute(Movie.PRODUCERS);

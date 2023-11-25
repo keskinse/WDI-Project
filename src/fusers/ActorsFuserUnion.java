@@ -13,8 +13,8 @@ package fusers;
 
 import java.util.List;
 
-import model.Actor;
-import model.Movie;
+import model.modelDF.Actor;
+import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.list.Union;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;

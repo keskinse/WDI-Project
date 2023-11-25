@@ -9,7 +9,7 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and limitations under the License.
  */
-package de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model;
+package model.modelDF;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class MovieCSVFormatter extends CSVDataSetFormatter<Movie, Attribute> {
      */
     @Override
     public String[] getHeader(List<Attribute> orderedHeader) {
-        return new String[] { "id", "title", "studio", "genre", "budget", "gross", "director", "date" };
+        return new String[] { "id", "title", "studio", "genre", "budget", "gross", "director", "year" };
     }
 
     /*
@@ -45,7 +45,7 @@ public class MovieCSVFormatter extends CSVDataSetFormatter<Movie, Attribute> {
     @Override
     public String[] format(Movie record, DataSet<Movie, Attribute> dataset, List<Attribute> orderedHeader) {
         return new String[] { record.getIdentifier(), record.getTitle(), record.getStudio(), record.getGenre(),
-                Double.toString(record.getBudget()), Double.toString(record.getGross()), record.getDirectors(),
+                Double.toString(record.getBudget()), Double.toString(record.getGross()), record.getDirectors().get(0).getDirector(), // fix needed!!
                 record.getDate() == null ? "" : record.getDate().toString() };
     }
 

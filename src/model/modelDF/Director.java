@@ -1,4 +1,4 @@
-package de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model;
+package model.modelDF;
 
 import java.io.Serializable;
 

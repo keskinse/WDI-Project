@@ -11,7 +11,7 @@
  */
 package fusers;
 
-import model.Movie;
+import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.string.LongestString;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;

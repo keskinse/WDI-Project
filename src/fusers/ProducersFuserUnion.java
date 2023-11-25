@@ -13,10 +13,10 @@ package fusers;
 
 import java.util.List;
 
-import model.Actor;
-import model.Movie;
-import model.Director;
-import model.Producer;
+import model.modelDF.Actor;
+import model.modelDF.Movie;
+import model.modelDF.Director;
+import model.modelDF.Producer;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.list.Union;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
@@ -40,7 +40,7 @@ public class ProducersFuserUnion extends AttributeValueFuser<List<Producer>, Mov
 
     @Override
     public boolean hasValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
-        return record.hasValue(Movie.PRODUCER);
+        return record.hasValue(Movie.PRODUCERS);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class ProducersFuserUnion extends AttributeValueFuser<List<Producer>, Mov
     public void fuse(RecordGroup<Movie, Attribute> group, Movie fusedRecord, Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, Attribute schemaElement) {
         FusedValue<List<Producer>, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
         fusedRecord.setProducers(fused.getValue());
-        fusedRecord.setAttributeProvenance(Movie.PRODUCER, fused.getOriginalIds());
+        fusedRecord.setAttributeProvenance(Movie.PRODUCERS, fused.getOriginalIds());
     }
 
 }

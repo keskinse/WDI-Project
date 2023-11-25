@@ -11,8 +11,8 @@
  */
 package evaluation;
 
-import model.Producer;
-import model.Movie;
+import model.modelDF.Producer;
+import model.modelDF.Movie;
 import java.util.HashSet;
 import java.util.Set;
 import de.uni_mannheim.informatik.dws.winter.datafusion.EvaluationRule;

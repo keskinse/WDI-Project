@@ -9,7 +9,7 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and limitations under the License.
  */
-package de.uni_mannheim.informatik.dws.wdi.ExerciseDataFusion.model;
+package model.modelDF;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -156,7 +156,7 @@ public class Movie extends AbstractRecord<Attribute> implements Serializable {
 
     public static final Attribute TITLE = new Attribute("Title");
     public static final Attribute DIRECTORS = new Attribute("Directors");
-    public static final Attribute DATE = new Attribute("Date");
+    public static final Attribute YEAR = new Attribute("Year");
     public static final Attribute ACTORS = new Attribute("Actors");
     public static final Attribute PRODUCERS = new Attribute("Producers");
     public static final Attribute RATING = new Attribute("Rating");
@@ -167,8 +167,8 @@ public class Movie extends AbstractRecord<Attribute> implements Serializable {
             return getTitle() != null && !getTitle().isEmpty();
         else if (attribute == DIRECTORS)
             return getDirectors() != null && getDirectors().size() > 0;
-        else if (attribute == DATE)
-            return getDate() != null;
+        else if (attribute == YEAR)
+            return getYear() != 0;
         else if (attribute == ACTORS)
             return getActors() != null && getActors().size() > 0;
         else if (attribute == PRODUCERS)

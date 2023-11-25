@@ -11,9 +11,7 @@
  */
 package fusers;
 
-import java.time.LocalDateTime;
-
-import model.Movie;
+import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.meta.MostRecent;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;

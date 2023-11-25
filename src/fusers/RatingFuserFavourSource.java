@@ -14,22 +14,9 @@ package fusers;
 import java.util.List;
 import java.time.LocalDateTime;
 
-import model.Movie;
+import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.meta.FavourSources;
-import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
-import de.uni_mannheim.informatik.dws.winter.model.FusedValue;
-import de.uni_mannheim.informatik.dws.winter.model.Matchable;
-import de.uni_mannheim.informatik.dws.winter.model.RecordGroup;
-import de.uni_mannheim.informatik.dws.winter.model.defaultmodel.Attribute;
-import de.uni_mannheim.informatik.dws.winter.processing.Processable;
-
-import model.Actor;
-import model.Movie;
-import model.Director;
-import model.Producer;
-import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
-import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.list.Union;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.FusedValue;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
@@ -63,7 +50,11 @@ public class RatingFuserFavourSource extends AttributeValueFuser<Double, Movie, 
     @Override
     public void fuse(RecordGroup<Movie, Attribute> group, Movie fusedRecord, Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, Attribute schemaElement) {
         FusedValue<Double, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
-        fusedRecord.setRating(fused.getValue());
+        try {
+          fusedRecord.setRating(fused.getValue());
+        } catch (Exception e) {
+          fusedRecord.setRating(0.0);
+        }
         fusedRecord.setAttributeProvenance(Movie.RATING, fused.getOriginalIds());
     }
 

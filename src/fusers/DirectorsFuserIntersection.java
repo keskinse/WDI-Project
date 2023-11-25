@@ -13,8 +13,8 @@ package fusers;
 
 import java.util.List;
 
-import model.Director;
-import model.Movie;
+import model.modelDF.Director;
+import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.list.Intersection;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
@@ -40,7 +40,7 @@ public class DirectorsFuserIntersection extends
 
     @Override
     public boolean hasValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
-        return record.hasValue(Movie.DIRECTOR);
+        return record.hasValue(Movie.DIRECTORS);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class DirectorsFuserIntersection extends
         FusedValue<List<Director>, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
         fusedRecord.setDirectors(fused.getValue());
         fusedRecord
-                .setAttributeProvenance(Movie.DIRECTOR, fused.getOriginalIds());
+                .setAttributeProvenance(Movie.DIRECTORS, fused.getOriginalIds());
     }
 
 }

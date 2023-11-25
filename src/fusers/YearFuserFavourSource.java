@@ -11,9 +11,7 @@
  */
 package fusers;
 
-import java.time.LocalDateTime;
-
-import model.Movie;
+import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.AttributeValueFuser;
 import de.uni_mannheim.informatik.dws.winter.datafusion.conflictresolution.meta.FavourSources;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
@@ -49,7 +47,11 @@ public class YearFuserFavourSource extends AttributeValueFuser<Integer, Movie, A
     @Override
     public void fuse(RecordGroup<Movie, Attribute> group, Movie fusedRecord, Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, Attribute schemaElement) {
         FusedValue<Integer, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
+        try {
         fusedRecord.setYear(fused.getValue());
+        } catch (Exception e) {
+          fusedRecord.setYear(0);
+        }
         fusedRecord.setAttributeProvenance(Movie.YEAR, fused.getOriginalIds());
     }
 

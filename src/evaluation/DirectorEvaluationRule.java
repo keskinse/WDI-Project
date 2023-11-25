@@ -11,8 +11,8 @@
  */
 package evaluation;
 
-import model.Director;
-import model.Movie;
+import model.modelDF.Director;
+import model.modelDF.Movie;
 import java.util.HashSet;
 import java.util.Set;
 import de.uni_mannheim.informatik.dws.winter.datafusion.EvaluationRule;

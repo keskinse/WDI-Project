@@ -14,8 +14,8 @@ package evaluation;
 import java.util.HashSet;
 import java.util.Set;
 
-import model.Actor;
-import model.Movie;
+import model.modelDF.Actor;
+import model.modelDF.Movie;
 import de.uni_mannheim.informatik.dws.winter.datafusion.EvaluationRule;
 import de.uni_mannheim.informatik.dws.winter.model.Correspondence;
 import de.uni_mannheim.informatik.dws.winter.model.Matchable;
@@ -40,12 +40,12 @@ public class ActorsEvaluationRule extends EvaluationRule<Movie, Attribute> {
 			// lists
 			// in your project, you should have actor ids which you use here
 			// (and in the identity resolution)
-			actors1.add(a.getActor());
+			actors1.add(a.getName());
 		}
 
 		Set<String> actors2 = new HashSet<>();
 		for (Actor a : record2.getActors()) {
-			actors2.add(a.getActor());
+			actors2.add(a.getName());
 		}
 
 		return actors1.containsAll(actors2) && actors2.containsAll(actors1);
