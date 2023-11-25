@@ -31,24 +31,24 @@ import model.Movie;
 public class YearFuserMostRecent extends AttributeValueFuser<Double, Movie, Attribute> {
 
     public YearFuserMostRecent() {
-        super(new MostRecent<Double, Movie, Attribute>());
+        super(new MostRecent<Integer, Movie, Attribute>());
     }
 
     @Override
     public boolean hasValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
-        return record.hasValue(Movie.RATING);
+        return record.hasValue(Movie.Year);
     }
 
     @Override
-    public Double getValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
-        return record.getRating();
+    public Integer getValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
+        return record.getYear();
     }
 
     @Override
     public void fuse(RecordGroup<Movie, Attribute> group, Movie fusedRecord, Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, Attribute schemaElement) {
-        FusedValue<Double, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
-        fusedRecord.setRating(fused.getValue());
-        fusedRecord.setAttributeProvenance(Movie.RATING, fused.getOriginalIds());
+        FusedValue<Integer, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
+        fusedRecord.setYear(fused.getValue());
+        fusedRecord.setAttributeProvenance(Movie.YEAR, fused.getOriginalIds());
     }
 
 }
