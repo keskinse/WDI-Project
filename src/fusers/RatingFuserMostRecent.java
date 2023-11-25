@@ -23,33 +23,33 @@ import de.uni_mannheim.informatik.dws.winter.processing.Processable;
 import model.Movie;
 
 /**
- * {@link AttributeValueFuser} for the year of {@link Movie}s.
+ * {@link AttributeValueFuser} for the rating of {@link Movie}s.
  *
  * @author Robert Meusel (robert@dwslab.de)
  * @author Oliver Lehmberg (oli@dwslab.de)
  *
  */
-public class RatingFuserMostRecent extends AttributeValueFuser<Integer, Movie, Attribute> {
+public class RatingFuserMostRecent extends AttributeValueFuser<Double, Movie, Attribute> {
 
     public RatingFuserMostRecent() {
-        super(new MostRecent<Integer, Movie, Attribute>());
+        super(new MostRecent<Double, Movie, Attribute>());
     }
 
     @Override
     public boolean hasValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
-        return record.hasValue(Movie.YEAR);
+        return record.hasValue(Movie.RATING);
     }
 
     @Override
     public Integer getValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
-        return record.getYear();
+        return record.getRating();
     }
 
     @Override
     public void fuse(RecordGroup<Movie, Attribute> group, Movie fusedRecord, Processable<Correspondence<Attribute, Matchable>> schemaCorrespondences, Attribute schemaElement) {
-        FusedValue<Integer, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
-        fusedRecord.setYear(fused.getValue());
-        fusedRecord.setAttributeProvenance(Movie.YEAR, fused.getOriginalIds());
+        FusedValue<Double, Movie, Attribute> fused = getFusedValue(group, schemaCorrespondences, schemaElement);
+        fusedRecord.setRating(fused.getValue());
+        fusedRecord.setAttributeProvenance(Movie.RATING, fused.getOriginalIds());
     }
 
 }
