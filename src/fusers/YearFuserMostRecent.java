@@ -28,7 +28,7 @@ import model.Movie;
  * @author Oliver Lehmberg (oli@dwslab.de)
  *
  */
-public class YearFuserMostRecent extends AttributeValueFuser<Double, Movie, Attribute> {
+public class YearFuserMostRecent extends AttributeValueFuser<Integer, Movie, Attribute> {
 
     public YearFuserMostRecent() {
         super(new MostRecent<Integer, Movie, Attribute>());
@@ -36,7 +36,7 @@ public class YearFuserMostRecent extends AttributeValueFuser<Double, Movie, Attr
 
     @Override
     public boolean hasValue(Movie record, Correspondence<Attribute, Matchable> correspondence) {
-        return record.hasValue(Movie.Year);
+        return record.hasValue(Movie.YEAR);
     }
 
     @Override
