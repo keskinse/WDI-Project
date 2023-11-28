@@ -71,6 +71,8 @@ public class MovieXMLReader extends XMLMatchableReader<Movie, Attribute> impleme
 
         String rating = getValueFromChildElement(node, "rating");
 
+        String year = getValueFromChildElement(node, "year");
+
         if (rating != null && !rating.isEmpty()) {
             try {
                 double ratingValue = Double.parseDouble(rating);
@@ -79,6 +81,16 @@ public class MovieXMLReader extends XMLMatchableReader<Movie, Attribute> impleme
 
             }
         }
+
+                if (year != null && !year.isEmpty()) {
+            try {
+                int yearValue = Integer.parseInt(year);
+                movie.setYear(yearValue);
+            } catch (NumberFormatException e) {
+
+            }
+        }
+
 
         List<Director> directors = getObjectListFromChildElement(node, "directors", "director", new DirectorXMLReader(),
                 provenanceInfo);
