@@ -233,3 +233,4 @@ public class Movie extends AbstractRecord<Attribute> implements Serializable {
     }
 
 }
+
