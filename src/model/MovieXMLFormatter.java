@@ -47,6 +47,8 @@ public class MovieXMLFormatter extends XMLFormatter<Movie> {
                 record.getMergedAttributeProvenance(Movie.RATING), doc));
 
         movie.appendChild(createActorsElement(record, doc));
+        movie.appendChild(createDirectorElement(record, doc));
+        movie.appendChild(createProducerElement(record, doc));
 
         return movie;
     }
