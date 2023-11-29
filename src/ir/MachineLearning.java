@@ -47,8 +47,8 @@ public class MachineLearning {
    *
    */
   
-  static String gsTrain = "data/goldstandard/training/GS_DBpedia_HM_train.csv";
-  static String goldTest = "data/goldstandard/testing/GS_DBpedia_HM_test.csv";
+  static String gsTrain = "data/goldstandard/training/GS_TMDB_HM_train.csv";
+  static String gsTest = "data/goldstandard/testing/GS_TMDB_HM_test.csv";
 
   private static final Logger logger = WinterLogManager.activateLogger("default");
 
@@ -65,6 +65,23 @@ public class MachineLearning {
     HashedDataSet<Movie, Attribute> data3 = new HashedDataSet<>();
     new MovieXMLReader().loadFromXML(new File("data/input/TMDB_target.xml"), "/movies/movie",
         data3);
+    
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("*\tSELECT YOUR DATA\t*\n"
+        + "*\t1 = DBPEDIA <-> TMDB\t*\n"
+        + "*\t2 = DBPEDIA <-> HYDRAMOVIE\t*\n"
+        + "*\t3 = TMDB <-> HYDRAMOVIE\t*");
+    String dataType = scanner.nextLine();
+    HashedDataSet<Movie, Attribute> mainDataOne = null;
+    HashedDataSet<Movie, Attribute> mainDataTwo = null;
+    String evalDataText = null;
+    switch(dataType) {
+      case "1": mainDataOne = data1; mainDataTwo = data3; evalDataText = "DBPEDIA <-> TMDB"; gsTrain = "data/goldstandard/training/GS_DBpedia_TMDB_train.csv"; gsTest="data/goldstandard/testing/GS_DBpedia_TMDB_test.csv";  break;
+      case "2": mainDataOne = data1; mainDataTwo = data2; evalDataText = "DBPEDIA <-> HYDRAMOVIE"; gsTrain = "data/goldstandard/training/GS_DBpedia_HM_train.csv"; gsTest="data/goldstandard/testing/GS_DBpedia_HM_test.csv"; break;
+      case "3": mainDataOne = data2; mainDataTwo = data3; evalDataText = "TMDB <-> HYDRAMOVIE"; gsTrain = "data/goldstandard/training/GS_TMDB_HM_train.csv"; gsTest="data/goldstandard/testing/GS_TMDB_HM_test.csv"; break;
+      default: System.exit(0); break;
+    }  
+    
     // loading gold standard
     logger.info("*\tLoading gold standard\t*");
     MatchingGoldStandard goldStandard = new MatchingGoldStandard();
@@ -74,7 +91,7 @@ public class MachineLearning {
     String options[] = new String[] {"-S"};
     String modelType = "SimpleLogistic"; // use a logistic regression
     WekaMatchingRule<Movie, Attribute> matchingRule =
-        new WekaMatchingRule<>(0.7, modelType, options);
+        new WekaMatchingRule<>(0.85,modelType, options);
     matchingRule.activateDebugReport("data/output/debugResultsMatchingRule.csv", 1000, goldStandard);
 
     // add comparators
@@ -90,12 +107,12 @@ public class MachineLearning {
     // train the matching rule's model
     logger.info("*\tLearning matching rule\t*");
     RuleLearner<Movie, Attribute> learner = new RuleLearner<>();
-    learner.learnMatchingRule(data1, data2, null, matchingRule, goldStandard);
+    learner.learnMatchingRule(mainDataOne, mainDataTwo, null, matchingRule, goldStandard);
     logger.info(String.format("Matching rule is:\n%s", matchingRule.getModelDescription()));
 
     // create a blocker (blocking strategy)
  // selection of blocker
-    Scanner scanner = new Scanner(System.in);
+  //  Scanner scanner = new Scanner(System.in);
     System.out.println("*\tSELECT YOUR BLOCKING GENERATOR KEY\t*\n"
         + "*\t1 = By title and year\t*\n"
         + "*\t2 = By year and director\t*\n"
@@ -131,7 +148,7 @@ public class MachineLearning {
     // Execute the matching
     logger.info("*\tRunning identity resolution\t*");
     Processable<Correspondence<Movie, Attribute>> correspondences =
-        engine.runIdentityResolution(data1, data2, null, matchingRule, (Blocker<Movie, Attribute, Movie, Attribute>) blocker);
+        engine.runIdentityResolution(mainDataOne, mainDataTwo, null, matchingRule, (Blocker<Movie, Attribute, Movie, Attribute>) blocker);
 
     // write the correspondences to the output file
     new CSVCorrespondenceFormatter().writeCSV(
@@ -139,16 +156,16 @@ public class MachineLearning {
 
     // load the gold standard (test set)
     logger.info("*\tLoading gold standard\t*");
-    MatchingGoldStandard gsTest = new MatchingGoldStandard();
-    gsTest.loadFromCSVFile(new File(goldTest));
+    MatchingGoldStandard goldTest = new MatchingGoldStandard();
+    goldTest.loadFromCSVFile(new File(gsTest));
 
     // evaluate your result
     logger.info("*\tEvaluating result\t*");
     MatchingEvaluator<Movie, Attribute> evaluator = new MatchingEvaluator<Movie, Attribute>();
-    Performance perfTest = evaluator.evaluateMatching(correspondences, gsTest);
+    Performance perfTest = evaluator.evaluateMatching(correspondences, goldTest);
 
     // print the evaluation result
-    logger.info("Academy Awards <-> Actors");
+    logger.info(evalDataText);
     logger.info(String.format("Precision: %.4f", perfTest.getPrecision()));
     logger.info(String.format("Recall: %.4f", perfTest.getRecall()));
     logger.info(String.format("F1: %.4f", perfTest.getF1()));

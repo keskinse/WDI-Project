@@ -38,8 +38,8 @@ public class MovieDateComparator10Years implements Comparator<Movie, Attribute> 
         if(this.comparisonLog != null){
             this.comparisonLog.setComparatorName(getClass().getName());
         
-            this.comparisonLog.setRecord1Value(record1.getDate().toString());
-            this.comparisonLog.setRecord2Value(record2.getDate().toString());
+            this.comparisonLog.setRecord1Value(Integer.toString(record1.getYear()));
+            this.comparisonLog.setRecord2Value(Integer.toString(record2.getYear()));
         
             this.comparisonLog.setSimilarity(Double.toString(similarity));
         }
