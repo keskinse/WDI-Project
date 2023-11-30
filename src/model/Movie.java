@@ -179,12 +179,20 @@ public class Movie extends AbstractRecord<Attribute> implements Serializable {
             return false;
     }
 
-    // fix
+//    // fix
+//    @Override
+//    public String toString() {
+//        System.out.println("hee");
+//        return String.format("[Movie %s: %s / %s / %s / %s / %s]", getIdentifier(), getTitle(), getDirectors(),
+//                getRating(), getProducers(), getDate());
+//    }
+
+     //fix
     @Override
     public String toString() {
         System.out.println("hee");
-        return String.format("[Movie %s: %s / %s / %s / %s / %s]", getIdentifier(), getTitle(), getDirectors(),
-                getRating(), getProducers(), getDate().toString().charAt(year));
+        return String.format("[Movie %s: %s / %s / %s / %s / %s /%s /%s]", getIdentifier(), getTitle(), getDirectors(),
+                getRating(), getProducers(), getYear(), getActors(), getProducers());
     }
 
     @Override
