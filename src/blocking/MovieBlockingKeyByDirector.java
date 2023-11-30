@@ -22,7 +22,7 @@ RecordBlockingKeyGenerator<Movie, Attribute> {
     try {
       if(record.getDirectors().size() >= 3) {
       for (int i = 0; i <= 2; i++) {
-        Director p = record.getDirectors().get(0);        
+        Director p = record.getDirectors().get(i);        
         blockingKeyValue +=  p.getDirector().substring(0,Math.min(2, p.getDirector().length()));
       }
       } else {

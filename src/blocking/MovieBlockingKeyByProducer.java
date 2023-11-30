@@ -22,7 +22,7 @@ RecordBlockingKeyGenerator<Movie, Attribute> {
     try {
       if(record.getProducers().size() >= 3) {
       for (int i = 0; i <= 2; i++) {
-        Producer p = record.getProducers().get(0);        
+        Producer p = record.getProducers().get(i);        
         blockingKeyValue +=  p.getProducer().substring(0,Math.min(2, p.getProducer().length()));
       }
       } else {
