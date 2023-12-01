@@ -6,20 +6,11 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.ChronoField;
 import java.util.Locale;
-import fusers.DirectorsFuserUnion;
-import fusers.DirectorsFuserIntersection;
-import fusers.TitleFuserShortestString;
-import fusers.ProducersFuserUnion;
-import fusers.ProducersFuserIntersection;
-import fusers.RatingFuserFavourSource;
-import fusers.YearFuserFavourSource;
+
+import fusers.*;
 import model.Movie;
 import model.MovieXMLFormatter;
 import model.MovieXMLReader;
-import fusers.ActorsFuserUnion;
-import fusers.ActorsFuserIntersection;
-import fusers.ActorsFuserFavourSource;
-import fusers.ActorsFuserMostRecent;
 
 import evaluation.TitleEvaluationRule;
 import evaluation.ActorsEvaluationRule;
@@ -62,23 +53,23 @@ public class DataFusion_Main
     {
 		// Load the Data into FusibleDataSet
 		logger.info("*\tLoading datasets\t*");
+//		FusibleDataSet<Movie, Attribute> ds1 = new FusibleHashedDataSet<>();
+//		new MovieXMLReader().loadFromXML(new File("data/input/DBpedia_target.xml"), "/movies/movie", ds1);
+//		ds1.printDataSetDensityReport();
+
 		FusibleDataSet<Movie, Attribute> ds1 = new FusibleHashedDataSet<>();
-		new MovieXMLReader().loadFromXML(new File("data/input/DBpedia_target.xml"), "/movies/movie", ds1);
+		new MovieXMLReader().loadFromXML(new File("data/input/HydraMovie_target.xml"), "/movies/movie", ds1);
 		ds1.printDataSetDensityReport();
 
 		FusibleDataSet<Movie, Attribute> ds2 = new FusibleHashedDataSet<>();
-		new MovieXMLReader().loadFromXML(new File("data/input/HydraMovie_target.xml"), "/movies/movie", ds2);
+		new MovieXMLReader().loadFromXML(new File("data/input/TMDB_target.xml"), "/movies/movie", ds2);
 		ds2.printDataSetDensityReport();
-
-		FusibleDataSet<Movie, Attribute> ds3 = new FusibleHashedDataSet<>();
-		new MovieXMLReader().loadFromXML(new File("data/input/TMDB_target.xml"), "/movies/movie", ds3);
-		ds3.printDataSetDensityReport();
 
 		// Maintain Provenance
 		// Scores (e.g. from rating)
 		ds1.setScore(1.0);
 		ds2.setScore(2.0);
-		ds3.setScore(3.0);
+//		ds3.setScore(3.0);
 
 		/*// Year (e.g. last update)
 		DateTimeFormatter formatter = new DateTimeFormatterBuilder()
@@ -87,7 +78,7 @@ public class DataFusion_Main
 		        .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0)
 		        .parseDefaulting(ChronoField.SECOND_OF_MINUTE, 0)
 		        .toFormatter(Locale.ENGLISH);
-		
+
 		ds1.setDate(LocalDateTime.parse("2012-01-01", formatter));
 		ds2.setDate(LocalDateTime.parse("2010-01-01", formatter));
 		ds3.setDate(LocalDateTime.parse("2008-01-01", formatter));
@@ -96,9 +87,10 @@ public class DataFusion_Main
 		// load correspondences
 		logger.info("*\tLoading correspondences\t*");
 		CorrespondenceSet<Movie, Attribute> correspondences = new CorrespondenceSet<>();
-		correspondences.loadCorrespondences(new File("data/output/outputCorrespondences.csv"),ds1, ds2);
-	//	correspondences.loadCorrespondences(new File("data/correspondences/actors_2_golden_globes_correspondences.csv"),ds2, ds3);
 
+//		correspondences.loadCorrespondences(new File("data/correspondences/outputCorrespondences_DBPEDIA_TMDB.csv"),ds1, ds3);
+//		correspondences.loadCorrespondences(new File("data/correspondences/outputCorrespondences_DBPEDIA_Hydra.csv"),ds1, ds2);
+		correspondences.loadCorrespondences(new File("data/correspondences/outputCorrespondences_Hydra_TMDB.csv"),ds1, ds2);
 		// write group size distribution
 		correspondences.printGroupSizeDistribution();
 
@@ -115,20 +107,30 @@ public class DataFusion_Main
 		// define the fusion strategy
 		DataFusionStrategy<Movie, Attribute> strategy = new DataFusionStrategy<>(new MovieXMLReader());
 		// write debug results to file
-		strategy.activateDebugReport("data/output/debugResultsDatafusion.csv", -1, gs);
+		//strategy.activateDebugReport("data/output/debugResultsDatafusion.csv", -1, gs);
 		
 		// add attribute fusers
-		strategy.addAttributeFuser(Movie.TITLE, new TitleFuserShortestString(),new TitleEvaluationRule());
-		strategy.addAttributeFuser(Movie.DIRECTORS,new DirectorsFuserUnion(),new DirectorEvaluationRule());
-		strategy.addAttributeFuser(Movie.PRODUCERS,new ProducersFuserUnion(),new ProducerEvaluationRule());
-		strategy.addAttributeFuser(Movie.YEAR, new YearFuserFavourSource(),new YearEvaluationRule());
-		strategy.addAttributeFuser(Movie.ACTORS,new ActorsFuserUnion(),new ActorsEvaluationRule());
-		strategy.addAttributeFuser(Movie.RATING,new RatingFuserFavourSource(),new RatingEvaluationRule());
-		/*OR
-		strategy.addAttributeFuser(Movie.DIRECTOR,new DirectorsFuserIntersection(),new DirectorEvaluationRule());
-		strategy.addAttributeFuser(Movie.PRODUCER,new ProducersFuserIntersection(),new ProducerEvaluationRule());
-		strategy.addAttributeFuser(Movie.ACTOR,new ActorsFuserIntersection(),new ActorEvaluationRule());
-		*/
+		// TITLE
+		 strategy.addAttributeFuser(Movie.TITLE, new TitleFuserShortestString(),new TitleEvaluationRule());
+		// strategy.addAttributeFuser(Movie.TITLE, new TitleFuserLongestString(),new TitleEvaluationRule());
+		// DIRECTORS
+		 strategy.addAttributeFuser(Movie.DIRECTORS,new DirectorsFuserUnion(),new DirectorEvaluationRule());
+		// strategy.addAttributeFuser(Movie.DIRECTORS,new DirectorsFuserIntersection(),new DirectorEvaluationRule());
+		// PRODUCERS
+		 strategy.addAttributeFuser(Movie.PRODUCERS,new ProducersFuserUnion(),new ProducerEvaluationRule());
+		// strategy.addAttributeFuser(Movie.PRODUCERS,new ProducersFuserIntersection(),new ProducerEvaluationRule());
+		// YEAR
+		// strategy.addAttributeFuser(Movie.YEAR, new YearFuserFavourSource(),new YearEvaluationRule());
+		 strategy.addAttributeFuser(Movie.YEAR, new YearFuserVoting(),new YearEvaluationRule());
+		// strategy.addAttributeFuser(Movie.YEAR, new YearFuserClusteredVote(),new YearEvaluationRule());
+
+		// ACTORS
+		 strategy.addAttributeFuser(Movie.ACTORS,new ActorsFuserUnion(),new ActorsEvaluationRule());
+		// strategy.addAttributeFuser(Movie.ACTORS,new ActorsFuserIntersection(),new ActorsEvaluationRule());
+		 //RATING
+		// strategy.addAttributeFuser(Movie.RATING,new RatingFuserFavourSource(),new RatingEvaluationRule());
+		 strategy.addAttributeFuser(Movie.RATING,new RatingFuserMedian(),new RatingEvaluationRule());
+		// strategy.addAttributeFuser(Movie.RATING,new RatingFuserAverage(),new RatingEvaluationRule());
 		
 		// create the fusion engine
 		DataFusionEngine<Movie, Attribute> engine = new DataFusionEngine<>(strategy);
