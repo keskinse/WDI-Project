@@ -9,13 +9,13 @@ public class ProducerXMLReader extends XMLMatchableReader<Producer, Attribute> {
 
     @Override
     public Producer createModelFromElement(Node node, String provenanceInfo) {
-        String id = getValueFromChildElement(node, "id");
+    //    String id = getValueFromChildElement(node, "id");
 
         // create the object with id and provenance information
-        Producer producer = new Producer(id);
+        Producer producer = new Producer("");
 
         // fill the attributes
-        producer.setProducer(getValueFromChildElement(node, "producer"));
+        producer.setProducer(node.getTextContent());
 
         return producer;
     }

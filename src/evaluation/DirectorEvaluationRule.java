@@ -24,6 +24,7 @@ public class DirectorEvaluationRule extends EvaluationRule<Movie, Attribute> {
 
 	@Override
 	public boolean isEqual(Movie record1, Movie record2, Attribute schemaElement) {
+	  try {
       Set<String> directors1 = new HashSet<>();
 
       for (Director d : record1.getDirectors()) {
@@ -36,6 +37,9 @@ public class DirectorEvaluationRule extends EvaluationRule<Movie, Attribute> {
       }
 
       return directors1.containsAll(directors2) && directors2.containsAll(directors1);
+	} catch (Exception e) {
+	  return false;
+	}
 	}
 
 	/* (non-Javadoc)

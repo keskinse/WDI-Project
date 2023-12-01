@@ -38,23 +38,7 @@ public class ActorXMLReader extends XMLMatchableReader<Actor, Attribute> {
         Actor actor = new Actor(id, provenanceInfo);
 
         // fill the attributes
-        actor.setName(getValueFromChildElement(node, "name"));
-        actor.setBirthplace(getValueFromChildElement(node, "birthplace"));
-
-        // convert the date string into a DateTime object
-        try {
-            String date = getValueFromChildElement(node, "birthday");
-            if (date != null) {
-                DateTimeFormatter formatter = new DateTimeFormatterBuilder().appendPattern("yyyy-MM-dd")
-                        .parseDefaulting(ChronoField.CLOCK_HOUR_OF_DAY, 0)
-                        .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 0).parseDefaulting(ChronoField.SECOND_OF_MINUTE, 0)
-                        .toFormatter(Locale.ENGLISH);
-                LocalDateTime dt = LocalDateTime.parse(date, formatter);
-                actor.setBirthday(dt);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        actor.setName(node.getTextContent());
 
         return actor;
     }

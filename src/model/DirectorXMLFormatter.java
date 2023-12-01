@@ -22,7 +22,7 @@ public class DirectorXMLFormatter extends XMLFormatter<Director> {
 	public Element createElementFromRecord(Director director, Document doc) {
 		Element director1 = doc.createElement("director");
 
-		director1.appendChild(createTextElement("producer", director.getDirector(), doc));
+		director1.appendChild(createTextElement("director", director.getDirector(), doc));
 
 		return director1;
 	}

@@ -9,14 +9,13 @@ public class DirectorXMLReader extends XMLMatchableReader<Director, Attribute> {
 
     @Override
     public Director createModelFromElement(Node node, String provenanceInfo) {
-        String id = getValueFromChildElement(node, "id");
+      //  String id = getValueFromChildElement(node, "id");
 
         // create the object with id and provenance information
-        Director director = new Director(id);
+        Director director = new Director("");
 
         // fill the attributes
-        director.setDirector(getValueFromChildElement(node, "director"));
-
+        director.setDirector(node.getTextContent());
         return director;
     }
 

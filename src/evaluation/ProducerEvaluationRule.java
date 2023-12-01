@@ -24,6 +24,7 @@ public class ProducerEvaluationRule extends EvaluationRule<Movie, Attribute> {
 
     @Override
     public boolean isEqual(Movie record1, Movie record2, Attribute schemaElement) {
+      try {
       Set<String> producers1 = new HashSet<>();
 
       for (Producer p : record1.getProducers()) {
@@ -36,6 +37,9 @@ public class ProducerEvaluationRule extends EvaluationRule<Movie, Attribute> {
       }
 
       return producers1.containsAll(producers2) && producers2.containsAll(producers1);
+    } catch (Exception e) {
+      return false;
+    }
     }
 
     /* (non-Javadoc)
