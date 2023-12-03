@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="numeric" library="lang" uid="22" kind="5">
+					<sources>
+						<datapoint pos="0" key="27"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view ltx="567" lty="-6" rbx="634" rby="30"/>
+				</component>
+				<component name="number" library="core" uid="14" kind="5">
+					<sources>
+						<datapoint pos="0" key="19"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="567" lty="44" rbx="628" rby="80"/>
+				</component>
+				<component name="auto-number" library="core" uid="16" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="39"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="22"/>
+					</targets>
+					<view ltx="282" lty="302" rbx="409" rby="386"/>
+				</component>
+				<component name="concat" library="core" uid="19" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="24"/>
+						<datapoint pos="1" key="25"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="528" lty="309" rbx="600" rby="363"/>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<targets>
+						<datapoint pos="0" key="32"/>
+					</targets>
+					<view ltx="282" lty="212" rbx="327" rby="228"/>
+					<data>
+						<constant value="0.0" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="20" kind="4">
+					<sources>
+						<datapoint pos="0" key="29"/>
+						<datapoint pos="1" key="30"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="31"/>
+					</targets>
+					<view ltx="663" lty="10" rbx="755" rby="81"/>
+				</component>
+				<component name="constant" library="core" uid="17" kind="2">
+					<targets>
+						<datapoint pos="0" key="23"/>
+					</targets>
+					<view ltx="391" lty="271" rbx="475" rby="287"/>
+					<data>
+						<constant value="movie_id_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="12" kind="2">
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="309" lty="105" rbx="346" rby="121"/>
+					<data>
+						<constant value="4" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="11" kind="2">
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="308" lty="70" rbx="345" rby="86"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="substring" library="core" uid="10" kind="5">
+					<sources>
+						<datapoint pos="0" key="15"/>
+						<datapoint pos="1" key="16"/>
+						<datapoint pos="2" key="17"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="380" lty="17" rbx="452" rby="85"/>
+				</component>
+				<component name="if-else" library="core" uid="23" kind="4">
+					<sources>
+						<datapoint pos="0" key="33"/>
+						<datapoint pos="1" key="34"/>
+						<datapoint pos="2" key="35"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="36"/>
+					</targets>
+					<view ltx="360" lty="157" rbx="452" rby="228"/>
+				</component>
+				<component name="target" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="821" lty="45" rbx="990" rby="265"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="movies" expanded="1">
+										<entry name="movie" inpkey="1" expanded="1">
+											<entry name="movie_id" inpkey="21"/>
+											<entry name="title" inpkey="2"/>
+											<entry name="year" inpkey="3"/>
+											<entry name="summary" inpkey="4"/>
+											<entry name="poster_url" inpkey="5"/>
+											<entry name="rating" inpkey="6"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\target.xsd" instanceroot="{}movies" inputinstance="..\..\target.xml" outputinstance="..\..\target.xml"/>
+					</data>
+				</component>
+				<component name="TMDB" library="text" uid="3" kind="16">
+					<properties/>
+					<view ltx="43" lty="46" rbx="205" rby="246"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="7" expanded="1">
+										<entry name="Release_Date" outkey="8"/>
+										<entry name="Title" outkey="9"/>
+										<entry name="Overview" outkey="10"/>
+										<entry name="Vote_Average" outkey="11"/>
+										<entry name="Poster_Url" outkey="12"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="TMDB.csv">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="TMDB" block="Rows">
+									<field0 name="Release_Date" type="string"/>
+									<field1 name="Title" type="string"/>
+									<field2 name="Overview" type="string"/>
+									<field3 name="Popularity" type="decimal"/>
+									<field4 name="Vote_Count" type="string"/>
+									<field5 name="Vote_Average" type="string"/>
+									<field6 name="Original_Language" type="string"/>
+									<field7 name="Genre" type="string"/>
+									<field8 name="Poster_Url" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="numeric" library="lang" uid="26" kind="5">
+					<sources>
+						<datapoint pos="0" key="37"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="246" lty="156" rbx="313" rby="192"/>
+				</component>
+				<component name="constant" library="core" uid="27" kind="2">
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="171" lty="346" rbx="214" rby="362"/>
+					<data>
+						<constant value="10" datatype="decimal"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="1"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="9">
+						<edges>
+							<edge vertexkey="2"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="3"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="4"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="12">
+						<edges>
+							<edge vertexkey="5"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="36">
+						<edges>
+							<edge vertexkey="6"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="8">
+						<edges>
+							<edge vertexkey="15"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="13">
+						<edges>
+							<edge vertexkey="16"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="14">
+						<edges>
+							<edge vertexkey="17"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="18">
+						<edges>
+							<edge vertexkey="19"/>
+							<edge vertexkey="27"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="26">
+						<edges>
+							<edge vertexkey="21"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="23">
+						<edges>
+							<edge vertexkey="24"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="22">
+						<edges>
+							<edge vertexkey="25"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="29"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="30"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="38">
+						<edges>
+							<edge vertexkey="33"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="11">
+						<edges>
+							<edge vertexkey="34"/>
+							<edge vertexkey="37"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="32">
+						<edges>
+							<edge vertexkey="35"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="40">
+						<edges>
+							<edge vertexkey="39"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="22">
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="tokenize" library="core" uid="27" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="5"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="406" lty="175" rbx="490" rby="227"/>
+				</component>
+				<component name="constant" library="core" uid="28" kind="2">
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="331" lty="221" rbx="373" rby="237"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="30" kind="5">
+					<sources>
+						<datapoint pos="0" key="8"/>
+						<datapoint pos="1" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="646" lty="352" rbx="730" rby="404"/>
+				</component>
+				<component name="tokenize" library="core" uid="32" kind="5">
+					<sources>
+						<datapoint pos="0" key="11"/>
+						<datapoint pos="1" key="12"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="782" lty="415" rbx="866" rby="467"/>
+				</component>
+				<component name="auto-number" library="core" uid="22" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="49"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="456" lty="2" rbx="583" rby="86"/>
+				</component>
+				<component name="concat" library="core" uid="52" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="44"/>
+						<datapoint pos="1" key="45"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="46"/>
+					</targets>
+					<view ltx="816" lty="12" rbx="888" rby="66"/>
+				</component>
+				<component name="target" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="1002" lty="48" rbx="1167" rby="307"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="movies" expanded="1">
+										<entry name="movie" inpkey="29" expanded="1">
+											<entry name="movie_id" inpkey="30"/>
+											<entry name="title" inpkey="31"/>
+											<entry name="year" inpkey="32"/>
+											<entry name="directors" expanded="1">
+												<entry name="director" inpkey="33"/>
+											</entry>
+											<entry name="producers" expanded="1">
+												<entry name="producer" inpkey="34"/>
+											</entry>
+											<entry name="actors" expanded="1">
+												<entry name="actor" inpkey="35"/>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="target.xsd" instanceroot="{}movies" inputinstance="target.xml" outputinstance="target.xml"/>
+					</data>
+				</component>
+				<component name="number" library="core" uid="54" kind="5">
+					<sources>
+						<datapoint pos="0" key="47"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="48"/>
+					</targets>
+					<view ltx="792" lty="239" rbx="853" rby="275"/>
+				</component>
+				<component name="constant" library="core" uid="49" kind="2">
+					<targets>
+						<datapoint pos="0" key="27"/>
+					</targets>
+					<view ltx="567" lty="434" rbx="604" rby="450"/>
+					<data>
+						<constant value="4" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="50" kind="2">
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view ltx="576" lty="311" rbx="613" rby="327"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="substring" library="core" uid="48" kind="5">
+					<sources>
+						<datapoint pos="0" key="39"/>
+						<datapoint pos="1" key="40"/>
+						<datapoint pos="2" key="41"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="42"/>
+					</targets>
+					<view ltx="645" lty="260" rbx="717" rby="328"/>
+				</component>
+				<component name="is-null" library="db" uid="34" kind="5">
+					<sources>
+						<datapoint pos="0" key="14"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="319" lty="313" rbx="382" rby="349"/>
+				</component>
+				<component name="if-else" library="core" uid="9" kind="4">
+					<sources>
+						<datapoint pos="0" key="23"/>
+						<datapoint/>
+						<datapoint pos="2" key="25"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="456" lty="257" rbx="548" rby="328"/>
+				</component>
+				<component name="DBpedia" library="text" uid="3" kind="16">
+					<properties/>
+					<view ltx="11" lty="74" rbx="184" rby="274"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="16" expanded="1">
+										<entry name="title" outkey="17"/>
+										<entry name="release_date" outkey="18"/>
+										<entry name="directors" outkey="19"/>
+										<entry name="producers" outkey="20"/>
+										<entry name="actors" outkey="21"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="Data sets\Movies\DBpedia.csv">
+							<settings separator="," quote="&quot;" firstrownames="true" removeempty="true">
+								<names root="DBpedia" block="Rows">
+									<field0 name="imdbid" type="string"/>
+									<field1 name="title" type="string"/>
+									<field2 name="budget" type="string"/>
+									<field3 name="gross" type="string"/>
+									<field4 name="release_date" type="string"/>
+									<field5 name="directors" type="string"/>
+									<field6 name="producers" type="string"/>
+									<field7 name="actors" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint pos="0" key="43"/>
+					</targets>
+					<view ltx="646" lty="12" rbx="742" rby="28"/>
+					<data>
+						<constant value="dbpedia_id_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="55" kind="2">
+					<targets>
+						<datapoint pos="0" key="50"/>
+					</targets>
+					<view ltx="348" lty="49" rbx="396" rby="65"/>
+					<data>
+						<constant value="100" datatype="decimal"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="19">
+						<edges>
+							<edge vertexkey="4"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="5"/>
+							<edge vertexkey="9"/>
+							<edge vertexkey="12"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="8"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="21">
+						<edges>
+							<edge vertexkey="11"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="18">
+						<edges>
+							<edge vertexkey="14"/>
+							<edge vertexkey="25"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="15">
+						<edges>
+							<edge vertexkey="23"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="29"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="46">
+						<edges>
+							<edge vertexkey="30"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="17">
+						<edges>
+							<edge vertexkey="31"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="48">
+						<edges>
+							<edge vertexkey="32"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="33"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="34"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="13">
+						<edges>
+							<edge vertexkey="35"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="26">
+						<edges>
+							<edge vertexkey="39"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="40"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="27">
+						<edges>
+							<edge vertexkey="41"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="43">
+						<edges>
+							<edge vertexkey="44"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="45"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="42">
+						<edges>
+							<edge vertexkey="47"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="50">
+						<edges>
+							<edge vertexkey="49"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
